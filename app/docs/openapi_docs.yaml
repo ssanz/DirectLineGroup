@@ -1,0 +1,31 @@
+openapi: "3.0.0"
+info:
+  description: Documentation for Direct Line Group API.
+  version: 0.0.1
+  title: Direct Line Group API
+tags:
+  - name: healthcheck
+components:
+  schemas:
+    Healthcheck:
+      description: Status of the service checker
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Welcome to Direct Line Group!"
+paths:
+  /:
+    get:
+      tags:
+        - healthcheck
+      summary: Check the status of the service
+      description: Call this endpoint to check the status of the service
+      operationId: healthcheck
+      responses:
+        '200':
+          description: Healthy service
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Healthcheck'
