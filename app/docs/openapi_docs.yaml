@@ -5,7 +5,21 @@ info:
   title: Direct Line Group API
 tags:
   - name: healthcheck
+  - name: total
 components:
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            properties:
+              error_message:
+                type: string
+                example: Not valid values.
+              error_code:
+                type: string
+                example: BAD_REQUEST
   schemas:
     Healthcheck:
       description: Status of the service checker
@@ -29,3 +43,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Healthcheck'
+  /total:
+    post:
+      tags:
+        - total
+      summary: Calculate the sum of a list of numbers.
+      description: Provided a bunch of numbers in a list, calculates the sum of all the elements.
+      operationId: total
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                numbers_to_add:
+                  type: array
+                  items:
+                    type: number
+                    example: 1
+              required:
+                - numbers_to_add
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: number
+                    example: 1
+        '400':
+          $ref: '#/components/responses/BadRequest'
