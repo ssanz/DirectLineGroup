@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "dfe6a6e8-ace5-44a3-bda7-198d6c3415e0",
+		"name": "DirectLineGroup",
+		"description": "Direct Line Group software engineer python test.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Healthcheck",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{domain}}/",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Documentation API",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{domain}}/api_docs",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api_docs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Total",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"numbers_to_add\": [1, 2, 3, 5]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/total",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"total"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
