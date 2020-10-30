@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-from werkzeug.exceptions import NotFound
+from werkzeug.exceptions import BadRequest, NotFound
 
 from flask import current_app, jsonify
 
 from app.docs.setup import swaggerui_api_blueprint
+from app.views import total
 
 # Set up public URLs.
 public_urls = [
@@ -17,8 +18,6 @@ public_urls = [
 # Register blueprints.
 # # Documentation.
 current_app.register_blueprint(swaggerui_api_blueprint, url_prefix=current_app.config["SWAGGER_API_URL"])
-# # Endpoints.
-# # # TODO
 
 
 @current_app.route('/')
@@ -26,6 +25,7 @@ def hello():
     return jsonify({"message": "Welcome to Direct Line Group!"}), 200
 
 
+@current_app.errorhandler(BadRequest)
 @current_app.errorhandler(NotFound)
 def wsgi_tool_error_handler(e):
     """
