@@ -32,6 +32,14 @@ $ pip install -r requirements.txt
 $ pip install -r requirements-test.txt
 ```
 
+## Run the application
+To run the application, it is necessary to be under _"DirectLineGroup"_ working directory. Once there,
+run the following commands:
+```bash
+export FLASK_APP=app/app.py
+flask run
+```
+
 ## Tests
 This application benefits from `pytest` tests. To run the tests:
 ```bash
@@ -41,3 +49,8 @@ $ pytest tests
 ## Postman
 Under `DirectLineGroup/postman` there is a file `DirectLineGroup-postman_collection.json` ready to be imported
 into Postman to run manual tests.
+
+## Documentation
+```
+{domain}/api_docs/
+```
