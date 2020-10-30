@@ -13,14 +13,14 @@ def test_total_succeed(test_session):
     """
     url = "/total"
     body = {
-        'numbers_to_add': [1, 2, 3]
+        'numbers_to_add': list(range(10000001))
     }
 
     # Run the request.
     response = test_session.post(url, data=json.dumps(body), content_type="application/json")
 
     assert response.status_code == 200
-    assert response.json["total"] == 6
+    assert response.json["total"] == 50000005000000
 
 
 def test_total_missing_field(test_session):
